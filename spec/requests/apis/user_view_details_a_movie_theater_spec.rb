@@ -18,5 +18,14 @@ describe 'Usuário vê detalhes de um cinema', type: :request do
       expect(json_response.inspect).not_to include 'created_at'
       expect(json_response.inspect).not_to include 'updated_at'
     end
+
+    it 'e não localiza um cinema cadastrado' do
+      get '/api/v1/movie_theaters/999999999'
+
+      expect(response.status).to eq 404
+      expect(response.content_type).to include 'application/json'
+      json_response = JSON.parse(response.body)
+      expect(json_response['error_message']).to eq 'Nenhum cinema localizado'
+    end
   end
 end

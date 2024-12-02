@@ -1,6 +1,6 @@
 class Api::V1::MovieTheatersController < Api::V1::ApiController
   def show
-    movie_theater = MovieTheater.find(params[:id])
+    movie_theater = MovieTheater.find_by!(id: params[:id])
     max_capacity = 0
     movie_theater.rooms.each do |room|
       max_capacity += room.capacity
