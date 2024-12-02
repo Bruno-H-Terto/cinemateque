@@ -25,7 +25,21 @@ describe 'Usuário vê detalhes de um cinema', type: :request do
       expect(response.status).to eq 404
       expect(response.content_type).to include 'application/json'
       json_response = JSON.parse(response.body)
-      expect(json_response['error_message']).to eq 'Nenhum cinema localizado'
+      expect(json_response['error_message']).to eq 'Nenhum cinema localizado.'
+    end
+
+    it 'e sofre erro interno' do
+      allow(MovieTheater).to receive(:find_by!).and_raise(ActiveRecord::ActiveRecordError)
+      movie_theater = MovieTheater.create!(name: 'Cine Santa Cruz', city: 'Juiz de Fora/MG')
+      movie_theater.rooms.create(name: 'Sala 01', capacity: 100)
+      movie_theater.rooms.create(name: 'Sala 02', capacity: 130)
+
+      get "/api/v1/movie_theaters/#{movie_theater.id}"
+
+      expect(response.status).to eq 500
+      expect(response.content_type).to include 'application/json'
+      json_response = JSON.parse(response.body)
+      expect(json_response['error_message']).to eq 'Ocorreu um erro interno.'
     end
   end
 end
