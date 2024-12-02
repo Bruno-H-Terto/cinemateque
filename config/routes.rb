@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   end
 
   resources :movies, only: [:index, :new, :create]
-  resources :actors, only: [:index, :new, :create, :show]
+  resources :actors, only: [:index, :new, :create, :show] do
+    resources :participations, only: [:new, :create]
+  end
 
   namespace :api do
     namespace :v1 do
