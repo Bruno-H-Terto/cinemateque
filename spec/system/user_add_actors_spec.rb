@@ -37,7 +37,7 @@ describe 'Usuário adiciona atores' do
     click_on 'Novo papel'
     select 'Forrest Gump', from: 'Filme'
     fill_in 'Personagem', with: 'Forrest Gump'
-    click_on 'Criar Papel'
+    click_on 'Criar Participação'
 
     expect(page).to have_content 'Participação adicionada com sucesso!'
     within '#actors-movies' do
