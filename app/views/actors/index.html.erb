@@ -1,20 +1,24 @@
-<%= page_title(t('.title'))%>
+<%= page_title('Atores')%>
 <div class="my-5">
-  <%= button_link 'Novo Ator/Atriz', new_movie_theater_path %>
+  <%= button_link 'Novo Ator/Atriz', new_actor_path %>
 </div>
-<table id="movie-theaters-table" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+<table id="actors-table" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
   <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
     <th scope="col" class="px-3 py-3">Nome</th>
-    <th scope="col" class="px-6 py-3">Cidade</th>
+    <th scope="col" class="px-6 py-3">Data de Nascimento</th>
+    <th scope="col" class="px-6 py-3">Nacionalidade</th>
   </thead>
   <tbody>
-    <% @movie_theaters.each do |mt| %>
+    <% @actors.each do |actor| %>
       <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
         <td class="px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-          <%= link_to mt.name, mt, class: "text-blue-600 dark:text-blue-500 hover:underline" %>
+          <%= link_to actor.name, actor, class: "text-blue-600 dark:text-blue-500 hover:underline" %>
         </td>
         <td class="px-6 py-4">
-          <%= mt.city %>
+          <%= actor.birth_date %>
+        </td>
+        <td class="px-6 py-4">
+          <%= actor.nationality %>
         </td>
       </tr>
     <% end %>

@@ -1,0 +1,28 @@
+<%= page_title("Artista #{@actor.name}")%>
+
+<table id="actors-table" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <th scope="col" class="px-3 py-3">Nome</th>
+    <th scope="col" class="px-6 py-3">Data de Nascimento</th>
+    <th scope="col" class="px-6 py-3">Nacionalidade</th>
+  </thead>
+  <tbody>
+    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+      <td class="px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+        <span class="text-blue-600 dark:text-blue-500"><%= @actor.name %></span>
+      </td>
+      <td class="px-6 py-4">
+        <%= l(@actor.birth_date, format: "%d/%m/%Y") %>
+      </td>
+      <td class="px-6 py-4">
+        <%= @actor.nationality %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<section>
+  <div>
+    <h3>Participações em filmes</h3>
+  </div>
+</section>

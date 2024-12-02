@@ -15,10 +15,10 @@ describe 'Usuário adiciona atores' do
     fill_in 'Nacionalidade', with: 'Americano'
     click_on 'Criar Ator'
 
-    expect(page).to have_content 'Ator/Atriz Tomm Hanks cadastrado com sucesso!'
-    expect(page).to have_content 'Nome: Tom Hanks'
-    expect(page).to have_content 'Data de nascimento: 09/07/1956'
-    expect(page).to have_content 'Nacionalidade: Americano'
-    expect(page).to have_content 'Cadastrar novo papel'
+    expect(page).to have_content 'Ator/Atriz Tom Hanks cadastrado com sucesso!'
+    expect(page).to have_content 'Artista Tom Hanks'
+    expect(page).to have_content '09/07/1956'
+    expect(page).to have_content 'Americano'
+    expect(page).to have_content 'Participações em filmes'
   end
 end
