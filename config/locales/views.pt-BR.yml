@@ -21,3 +21,6 @@ pt-BR:
     create:
       success: 'Filme adicionado com sucesso.'
       failure: 'Filme não foi adicionado.'
+  actors:
+    index:
+      titler: 'Atores'
